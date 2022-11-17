@@ -17,6 +17,7 @@ public class NotifEntity {
 	private String studentUser;
 	private String date;
 	private String time;
+	
 	public NotifEntity(int id, String studentUser, String date, String time) {
 		super();
 		this.id = id;

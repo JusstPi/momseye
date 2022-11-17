@@ -15,9 +15,10 @@ public class NotifService {
 	@Autowired
 	NotifRepository nrepo;
 	
-	//C - Create or insert a student record
+	//C - Create or insert a record
+	
 	public NotifEntity insertNotif(NotifEntity notif) {
-		return nrepo.save(notif);
+		return nrepo.save();
 	}
 	
 	//R - Read all records
@@ -25,13 +26,13 @@ public class NotifService {
 		return nrepo.findAll();
 	}
 	
-	//U - Update a student record 
+	//U - Update record 
 	public NotifEntity putNotif(int id, NotifEntity newNotif) throws Exception{
 		
-		NotifEntity notifs = new NotifEntity();
+		NotifEntity notifs = new NotifEntity;
 		
 		try {
-			notifs = nrepo.findById(Id).get();
+			notifs = nrepo.findById(id).get();
 			
 			//Step 2 - update the record
 			notifs.setDate(newNotif.getDate());
@@ -45,7 +46,7 @@ public class NotifService {
 		}
 	}
 	
-	//D - Delete student record
+	//D - Delete notification
 	public String deleteNotif(int id){
 		String msg;
 		if(nrepo.findById(id) != null) {	
