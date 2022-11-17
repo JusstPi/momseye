@@ -13,85 +13,43 @@ public class NotifEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	private String fname;
-	private 
+
+	private String studentUser;
 	private String date;
 	private String time;
-
-	@OneToMany(cascade = CascadeType.MERGE)
-	private Set<CourseEntity> course;
-	
-	public StudentEntity(int id, String firstname, String lastname, String program, int yearlevel,
-			Set<CourseEntity> course) {
+	public NotifEntity(int id, String studentUser, String date, String time) {
 		super();
 		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.program = program;
-		this.yearlevel = yearlevel;
-		this.course = course;
+		this.studentUser = studentUser;
+		this.date = date;
+		this.time = time;
 	}
-	//ezample joann
-
-	public Set<CourseEntity> getCourse() {
-		return course;
-	}
-
-	public void setCourse(Set<CourseEntity> course) {
-		this.course = course;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public StudentEntity() {}
-	
-	public StudentEntity(int id, String firstname, String lastname, String program, int yearlevel) {
-		super();
-		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.program = program;
-		this.yearlevel = yearlevel;
-	}
-
 	public int getId() {
 		return id;
 	}
-
-	public String getFirstname() {
-		return firstname;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	public String getLastname() {
-		return lastname;
+	public String getStudentUser() {
+		return studentUser;
 	}
-
-	public String getProgram() {
-		return program;
+	public void setStudentUser(String studentUser) {
+		this.studentUser = studentUser;
 	}
-
-	public void setProgram(String program) {
-		this.program = program;
+	public String getDate() {
+		return date;
 	}
-
-	public int getYearlevel() {
-		return yearlevel;
+	public void setDate(String date) {
+		this.date = date;
 	}
-
-	public void setYearlevel(int yearlevel) {
-		this.yearlevel = yearlevel;
-	}	
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+}
 	
-}
-}
+	
+	
+
