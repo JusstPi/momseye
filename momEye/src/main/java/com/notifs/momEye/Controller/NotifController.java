@@ -19,7 +19,7 @@ import com.notifs.momEye.Service.NotifService;
 @RestController
 @RequestMapping("/notification")
 public class NotifController {
-
+//
 	@Autowired
 	NotifService ntserv;
 	
