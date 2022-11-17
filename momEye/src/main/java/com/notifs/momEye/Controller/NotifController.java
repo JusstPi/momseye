@@ -31,8 +31,8 @@ public class NotifController {
 	
 	//Create or insert a student record
 	@PostMapping("/postNotif")
-	public NotifEntity insertNotif(@RequestBody NotifEntity student) {
-		return ntserv.insertNotif(student);
+	public NotifEntity insertNotif(@RequestBody NotifEntity notif) {
+		return ntserv.insertNotif(notif);
 	}
 	
 	//Read all records
