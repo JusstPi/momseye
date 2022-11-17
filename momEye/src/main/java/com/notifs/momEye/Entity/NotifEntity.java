@@ -32,7 +32,7 @@ public class NotifEntity {
 		this.yearlevel = yearlevel;
 		this.course = course;
 	}
-	//ezample
+	//ezample joann
 
 	public Set<CourseEntity> getCourse() {
 		return course;
