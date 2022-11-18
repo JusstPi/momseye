@@ -29,7 +29,7 @@ public class SchoolService {
 	
 	
 	//R - Read all records from tbl_student
-	public List<SchoolEntity> getAllStudents(){
+	public List<SchoolEntity> getAllSchool(){
 		return srepo.findAll();
 	}
 	
@@ -42,14 +42,14 @@ public class SchoolService {
 //			return null;
 //	}
 	
-	public SchoolEntity putStudent(int id, SchoolEntity newStudentDetails) throws Exception{
+	public SchoolEntity putSchool(int id, SchoolEntity newSchoolDetails) throws Exception{
         SchoolEntity student = new SchoolEntity();
         try {
             student = srepo.findById(id).get();
 
 
-            student.setSubject(newStudentDetails.getSubject());
-            student.setYearLevel(newStudentDetails.getYearLevel());
+            student.setSchoolName(newSchoolDetails.getSchoolName());
+            student.setSchoolAddress(newSchoolDetails.getSchoolAddress());
 
             return srepo.save(student);
 
@@ -62,7 +62,7 @@ public class SchoolService {
 
 
     //D - Delete student record
-    public String deleteStudent(int id) {
+    public String deleteSchool(int id) {
         String msg;
         if(srepo.findById(id) !=null) {
             srepo.deleteById(id);
