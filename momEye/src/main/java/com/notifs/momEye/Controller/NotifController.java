@@ -36,15 +36,20 @@ public class NotifController {
 	}
 	
 	//Read all records
-	@GetMapping("/getNotif")
+	@GetMapping("/getAllNotif")
 	public List<NotifEntity> getAllNotif(){
 		return ntserv.getAllNotif();
 	}
 	
+	@GetMapping("/getByStudentUser")
+    public NotifEntity findByStudentUser(@RequestParam String studentUser) {
+        return ntserv.findByStudentUser(studentUser);
+    }
+	
 	//Update a record
 	@PutMapping("/putNotif")
-	public NotifEntity putNotif(@RequestParam int id, @RequestBody NotifEntity newNotif) throws Exception{
-		return ntserv.putNotif(id, newNotif);
+	public NotifEntity putNotif(@RequestParam int id, @RequestBody NotifEntity newDetails) throws Exception{
+		return ntserv.putNotif(id, newDetails);
 	}
 	
 	//Delete a record

@@ -15,42 +15,52 @@ public class NotifService {
 	@Autowired
 	NotifRepository nrepo;
 	
-	//C - Create or insert a record
-	
+	//C - Create or insert record
 	public NotifEntity insertNotif(NotifEntity notif) {
-		return nrepo.save();
+		return nrepo.save(notif);
 	}
 	
-	//R - Read all records
+	//R - Read all records from tbl_notif
 	public List<NotifEntity> getAllNotif(){
 		return nrepo.findAll();
 	}
 	
-	//U - Update record 
-	public NotifEntity putNotif(int id, NotifEntity newNotif) throws Exception{
-		
-		NotifEntity notifs = new NotifEntity;
-		
-		try {
-			notifs = nrepo.findById(id).get();
-			
-			//Step 2 - update the record
-			notifs.setDate(newNotif.getDate());
-			notifs.setTime(newNotif.getTime());
-			
-			//Step 3 - save the information and return the value
-			return nrepo.save(notifs);
-
-		} catch(NoSuchElementException nex) {
-			throw new Exception("ID Number " +id+ "does not exist!");
-		}
+	//R - Read or search record by studentUser
+	public NotifEntity findByStudentUser(String studentUser) {
+		if (nrepo.findByStudentUser(studentUser) != null)
+			return nrepo.findByStudentUser(studentUser);
+		else 
+			return null;
 	}
 	
-	//D - Delete notification
+	//U - Update a record 
+	public NotifEntity putNotif(int id, NotifEntity newDetails) throws Exception{
+
+        NotifEntity notifs = new NotifEntity();
+
+        try {
+            //Step 1 - search the id number of the student
+            notifs = nrepo.findById(id).get(); //findById() is a pre-defined 
+
+            //Step 2 - update the record
+            notifs.setStudentUser(newDetails.getStudentUser());
+            notifs.setDate(newDetails.getDate());
+            notifs.setTime(newDetails.getTime());
+
+            //Step 3 - save the information and return the value
+            return nrepo.save(notifs);
+
+        } catch(NoSuchElementException nex) {
+            throw new Exception("ID Number " +id+ "does not exist!");
+        }
+    }
+	
+	
+	//D - Delete record
 	public String deleteNotif(int id){
 		String msg;
-		if(nrepo.findById(id) != null) {	
-			nrepo.deleteById(id);
+		if(nrepo.findById(id) != null) {	//Step 1 - find the record
+			nrepo.deleteById(id);			//Step 2 - delete the record
 			
 			msg = "Notification ID Number " +id+ " is successfully deleted!";
 		}
@@ -59,5 +69,5 @@ public class NotifService {
 		
 		return msg;
 	}
-
+	
 }

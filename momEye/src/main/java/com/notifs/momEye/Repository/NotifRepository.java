@@ -2,12 +2,15 @@ package com.notifs.momEye.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import com.notifs.momEye.Entity.NotifEntity;
 
 @Repository
-public interface NotifRepository extends JpaRepository<NotifRepository, Integer>{
+public interface NotifRepository extends JpaRepository<NotifEntity, Integer>{
+	
+	//PK = id
+	//Wrapper class = Integer
 	
 	//user-defined query 
-	NotifEntity findById(int id);
+
+	NotifEntity findByStudentUser(String studentUser);
 }
