@@ -1,6 +1,4 @@
 package com.notifs.momEye.Controller;
-import com.notifs.momEye.Entity.*;
-import com.notifs.momEye.Service.SchoolService;
 
 import java.util.List;
 
@@ -11,49 +9,59 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.notifs.momEye.Entity.SchoolEntity;
+
+import com.notifs.momEye.Service.SchoolService;
 
 
-
+@RestController
+@RequestMapping("/school")
 public class SchoolController {
+	
 	@Autowired
-	SchoolService stserv;
+	SchoolService scserv;
 	
 	//printHelloStudent
-	@GetMapping("/print")
-	public String printHelloStudent() {
+	@GetMapping("/printSchool")
+	public String printHelloSchool() {
 		return "Hello, Student!";
 	}
 	
 	
+	
 	//Create or insert a student record
-	@PostMapping("/postStudent")
-	public SchoolEntity insertStudent(@RequestBody SchoolEntity school) {
-		return stserv.insertStudent(school);
+	@PostMapping("/postSchool")
+	public SchoolEntity insertSchool(@RequestBody SchoolEntity student) {
+		return scserv.insertSchool(student);
 	} 
 	
 	
 	//Read all records
 	@GetMapping("/getAllSchool")
-	public List<SchoolEntity> getAllStudents(){
-		return stserv.getAllSchool();
+	public List<SchoolEntity> getAllSchool(){
+		return scserv.getAllSchool();
 	}
 
 //	//Read a record by Firstname
 //	@GetMapping("/getByfirstname")
 //	public SchoolEntity findByFirstname(@RequestParam String firstname) {
-//		return stserv.findByFirstname(firstname);
+//		return scserv.findByFirstname(firstname);
 //	}
 	
 	@PutMapping("/updateSchool")
-    public SchoolEntity putStudent(@RequestParam int id, @RequestBody SchoolEntity newSchoolDetails) throws Exception{
-        return stserv.putSchool(id, newSchoolDetails);
+    public SchoolEntity putSchool(@RequestParam int id, @RequestBody SchoolEntity newStudentDetails) throws Exception{
+        return scserv.putSchool(id, newStudentDetails);
 
         }
 
     //delete a record
     @DeleteMapping("/deleteSchool/{id}")
-    public String deleteStudent(@PathVariable int id){ 
-        return stserv.deleteSchool(id);
+    public String deleteSchool(@PathVariable int id){ 
+        return scserv.deleteSchool(id);
     }
+	
 }
