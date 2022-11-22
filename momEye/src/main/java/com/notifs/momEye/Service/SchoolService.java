@@ -69,10 +69,10 @@ public class SchoolService {
         if(srepo.findById(id) !=null) {
             srepo.deleteById(id);
 
-            msg = "Student ID Number " + id + " is successfully deleted";
+            msg = "School ID Number " + id + " is successfully deleted";
         }
         else 
-            msg = "Student ID Number " +id + " is NOT found!";
+            msg = "School ID Number " +id + " is NOT found!";
 
         return msg;
     }
