@@ -28,8 +28,6 @@ public class StudentEntity {
 	private String course;
 	private int year;
 	
-
-	
 	public StudentEntity() {}
 
 	public StudentEntity(int userid, String username, String password, String fname, String mname, String lname,

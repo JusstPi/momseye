@@ -28,9 +28,9 @@ public class StudentService {
 		return srepo.findAll();
 	}
 	
-	public StudentEntity findByUsername(String firstname) {
-		if(srepo.findByUsername(firstname) != null)
-			return srepo.findByUsername(firstname);
+	public StudentEntity findByUsername(String username) {
+		if(srepo.findByUsername(username) != null)
+			return srepo.findByUsername(username);
 		else
 			return null;
 	}
@@ -39,7 +39,7 @@ public class StudentService {
         StudentEntity student = new StudentEntity();
 
         try {
-            //Step 1 search the ID Num
+            //Step 1 search the userid number
             student = srepo.findById(userid).get(); //find by ID
 
             //Step 2 update record
