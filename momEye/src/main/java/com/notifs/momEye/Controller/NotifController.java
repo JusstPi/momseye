@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.notifs.momEye.Entity.NotifEntity;
 import com.notifs.momEye.Service.NotifService;
 
+
 @RestController
 @RequestMapping("/notification")
 public class NotifController {
@@ -42,8 +43,8 @@ public class NotifController {
 	}
 	
 	@GetMapping("/getByStudentUser")
-    public NotifEntity findByStudentUser(@RequestParam String studentUser) {
-        return ntserv.findByStudentUser(studentUser);
+    public NotifEntity findByNotifyId(@RequestParam int notifyId) {
+        return ntserv.findByNotifyId(notifyId);
     }
 	
 	//Update a record
@@ -58,4 +59,5 @@ public class NotifController {
 			return ntserv.deleteNotif(id);
 	}
 } 
+
 

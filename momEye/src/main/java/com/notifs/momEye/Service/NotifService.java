@@ -26,46 +26,46 @@ public class NotifService {
 	}
 	
 	//R - Read or search record by studentUser
-	public NotifEntity findByStudentUser(String studentUser) {
-		if (nrepo.findByStudentUser(studentUser) != null)
-			return nrepo.findByStudentUser(studentUser);
+	public NotifEntity findByNotifyId(int notifyId) {
+		if (nrepo.findByNotifyId(notifyId) != null)
+			return nrepo.findByNotifyId(notifyId);
 		else 
 			return null;
 	}
 	
 	//U - Update a record 
-	public NotifEntity putNotif(int id, NotifEntity newDetails) throws Exception{
+	public NotifEntity putNotif(int notifyId, NotifEntity newDetails) throws Exception{
 
         NotifEntity notifs = new NotifEntity();
 
         try {
             //Step 1 - search the id number of the student
-            notifs = nrepo.findById(id).get(); //findById() is a pre-defined 
+            notifs = nrepo.findById(notifyId).get(); //findById() is a pre-defined 
 
             //Step 2 - update the record
-            notifs.setStudentUser(newDetails.getStudentUser());
-            notifs.setDate(newDetails.getDate());
-            notifs.setTime(newDetails.getTime());
+            notifs.setDescript(newDetails.getDescript());
+            notifs.setTemplate(newDetails.getTemplate());
+            notifs.setStatus(newDetails.isStatus());
 
             //Step 3 - save the information and return the value
             return nrepo.save(notifs);
 
-        } catch(NoSuchElementException nex) {
-            throw new Exception("ID Number " +id+ "does not exist!");
+        } catch(NoSuchElementException next) {
+            throw new Exception("ID Number " +notifyId+ "does not exist!");
         }
     }
 	
 	
 	//D - Delete record
-	public String deleteNotif(int id){
+	public String deleteNotif(int notifyId){
 		String msg;
-		if(nrepo.findById(id) != null) {	//Step 1 - find the record
-			nrepo.deleteById(id);			//Step 2 - delete the record
+		if(nrepo.findById(notifyId) != null) {	//Step 1 - find the record
+			nrepo.deleteById(notifyId);			//Step 2 - delete the record
 			
-			msg = "Notification ID Number " +id+ " is successfully deleted!";
+			msg = "Notification ID Number " +notifyId+ " is successfully deleted!";
 		}
 		else
-			msg = "Notification ID Number " +id+ " is NOT found!";
+			msg = "Notification ID Number " +notifyId+ " is NOT found!";
 		
 		return msg;
 	}

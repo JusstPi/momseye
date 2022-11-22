@@ -28,7 +28,7 @@ public class SchoolController {
 	//printHelloStudent
 	@GetMapping("/printSchool")
 	public String printHelloSchool() {
-		return "Hello, Student!";
+		return "Hello, World";
 	}
 	
 	

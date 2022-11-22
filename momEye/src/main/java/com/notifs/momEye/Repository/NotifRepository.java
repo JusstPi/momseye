@@ -12,5 +12,5 @@ public interface NotifRepository extends JpaRepository<NotifEntity, Integer>{
 	
 	//user-defined query 
 
-	NotifEntity findByStudentUser(String studentUser);
+	NotifEntity findByNotifyId(int notifyId);
 }
