@@ -23,8 +23,8 @@ public class SchoolService {
 	SchoolRepository srepo;
 	
 	//C - Create or insert a student record
-	public SchoolEntity insertSchool(SchoolEntity student) {
-		return srepo.save(student);
+	public SchoolEntity insertSchool(SchoolEntity school) {
+		return srepo.save(school);
 	}
 	
 	
@@ -44,16 +44,16 @@ public class SchoolService {
 //	}
 	
 	public SchoolEntity putSchool(int id, SchoolEntity newSchoolDetails) throws Exception{
-		SchoolEntity student = new SchoolEntity();
+		SchoolEntity school = new SchoolEntity();
         try {
-            student = srepo.findById(id).get();
+        	school = srepo.findById(id).get();
 
 
-            student.setSchoolName(newSchoolDetails.getSchoolName());
-            student.setSchoolAddress(newSchoolDetails.getSchoolAddress());
-            student.setSchoolCont(newSchoolDetails.getSchoolCont());
+        	school.setSchoolName(newSchoolDetails.getSchoolName());
+        	school.setSchoolAddress(newSchoolDetails.getSchoolAddress());
+        	school.setSchoolCont(newSchoolDetails.getSchoolCont());
 
-            return srepo.save(student);
+            return srepo.save(school);
 
 
         }catch(NoSuchElementException nex) {
