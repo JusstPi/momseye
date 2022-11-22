@@ -97,10 +97,10 @@ public class NotifEntity {
 		this.sender = sender;
 	}
 
-	public Set<TimestampsEntity> getCreatedDate() {
+	public Set<WatchlistEntity> getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Set<TimestampsEntity> createdDate) {
+	public void setCreatedDate(Set<WatchlistEntity> createdDate) {
 		this.createdDate = createdDate;
 }}
