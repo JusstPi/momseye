@@ -1,9 +1,14 @@
 package com.notifs.momEye.Entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,49 +17,90 @@ public class NotifEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	private String studentUser;
-	private String date;
-	private String time;
+	private int notifyId;
 	
-
-	public NotifEntity(int id, String studentUser, String date, String time) {
-		super();
-		this.id = id;
-		this.studentUser = studentUser;
-		this.date = date;
-		this.time = time;
-	}
+	private String descript;
+	private String template;
+	private boolean status;
+	
+	@OneToMany(cascade = CascadeType.MERGE)
+	public Set<WatchlistEntity> watchlist_id;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	public Set<StudentEntity> sender;
+	
+	@OneToMany(cascade = CascadeType.MERGE)
+	public Set<TimestampsEntity> createdDate;
+	
 	public NotifEntity() {
-		// default
+		//default constructor
 	}
-	public int getId() {
-		return id;
-	}
-	//public void setId(int id) {
-	//	this.id = id;
-	//}
-	public String getStudentUser() {
-		return studentUser;
-	}
-	public void setStudentUser(String studentUser) {
-		this.studentUser = studentUser;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-}
-	
-	
-	
 
+	public NotifEntity(int notifyId, String descript, String template, boolean status,
+			Set<WatchlistEntity> watchlist_id, Set<StudentEntity> sender, Set<TimestampsEntity> createdDate) {
+		super();
+		this.notifyId = notifyId;
+		this.descript = descript;
+		this.template = template;
+		this.status = status;
+		this.watchlist_id = watchlist_id;
+		this.sender = sender;
+		this.createdDate = createdDate;
+		
+	}
+
+	public int getNotifyId() {
+		return notifyId;
+	}
+
+	//public void setNotifyId(int notifyId) {
+	//	this.notifyId = notifyId;
+	//}
+
+	public String getDescript() {
+		return descript;
+	}
+
+	public void setDescript(String descript) {
+		this.descript = descript;
+	}
+
+	public String getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public Set<WatchlistEntity> getWatchlist_id() {
+		return watchlist_id;
+	}
+
+	public void setWatchlist_id(Set<WatchlistEntity> watchlist_id) {
+		this.watchlist_id = watchlist_id;
+	}
+
+	public Set<StudentEntity> getSender() {
+		return sender;
+	}
+
+	public void setSender(Set<StudentEntity> sender) {
+		this.sender = sender;
+	}
+
+	public Set<TimestampsEntity> getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Set<TimestampsEntity> createdDate) {
+		this.createdDate = createdDate;
+}}
