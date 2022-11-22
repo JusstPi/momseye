@@ -30,14 +30,14 @@ public class NotifEntity {
 	public Set<StudentEntity> sender;
 	
 	@OneToMany(cascade = CascadeType.MERGE)
-	public Set<TimestampsEntity> createdDate;
+	public Set<WatchlistEntity> createdDate;
 	
 	public NotifEntity() {
 		//default constructor
 	}
 
 	public NotifEntity(int notifyId, String descript, String template, boolean status,
-			Set<WatchlistEntity> watchlist_id, Set<StudentEntity> sender, Set<TimestampsEntity> createdDate) {
+			Set<WatchlistEntity> watchlist_id, Set<StudentEntity> sender, Set<WatchlistEntity> createdDate) {
 		super();
 		this.notifyId = notifyId;
 		this.descript = descript;
