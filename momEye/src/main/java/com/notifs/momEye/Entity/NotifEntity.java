@@ -23,14 +23,14 @@ public class NotifEntity {
 	private String template;
 	private boolean status;
 	
-	@OneToMany(cascade = CascadeType.MERGE)
-	public Set<WatchlistEntity> watchlist_id;
+	//@OneToMany(cascade = CascadeType.MERGE)
+	//public Set<WatchlistEntity> watchlist_id;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	public Set<StudentEntity> sender;
+	//@ManyToOne(cascade = CascadeType.MERGE)
+	//public Set<StudentEntity> sender;
 	
-	@OneToMany(cascade = CascadeType.MERGE)
-	public Set<WatchlistEntity> createdDate;
+	//@OneToMany(cascade = CascadeType.MERGE)
+	//public Set<WatchlistEntity> createdDate;
 	
 	public NotifEntity() {
 		//default constructor
@@ -43,9 +43,9 @@ public class NotifEntity {
 		this.descript = descript;
 		this.template = template;
 		this.status = status;
-		this.watchlist_id = watchlist_id;
-		this.sender = sender;
-		this.createdDate = createdDate;
+		//this.watchlist_id = watchlist_id;
+		//this.sender = sender;
+		//this.createdDate = createdDate;
 		
 	}
 
@@ -81,26 +81,27 @@ public class NotifEntity {
 		this.status = status;
 	}
 
-	public Set<WatchlistEntity> getWatchlist_id() {
-		return watchlist_id;
-	}
+	//public Set<WatchlistEntity> getWatchlist_id() {
+	//	return watchlist_id;
+	//}
 
-	public void setWatchlist_id(Set<WatchlistEntity> watchlist_id) {
-		this.watchlist_id = watchlist_id;
-	}
+	//public void setWatchlist_id(Set<WatchlistEntity> watchlist_id) {
+	//	this.watchlist_id = watchlist_id;
+	//}
 
-	public Set<StudentEntity> getSender() {
-		return sender;
-	}
+	//public Set<StudentEntity> getSender() {
+	//	return sender;
+	//}
 
-	public void setSender(Set<StudentEntity> sender) {
-		this.sender = sender;
-	}
+	//public void setSender(Set<StudentEntity> sender) {
+	//	this.sender = sender;
+	//}
 
-	public Set<WatchlistEntity> getCreatedDate() {
-		return createdDate;
-	}
+	//public Set<WatchlistEntity> getCreatedDate() {
+	//	return createdDate;
+	//}
 
-	public void setCreatedDate(Set<WatchlistEntity> createdDate) {
-		this.createdDate = createdDate;
-}}
+	//public void setCreatedDate(Set<WatchlistEntity> createdDate) {
+	//	this.createdDate = createdDate;
+	//}
+}
