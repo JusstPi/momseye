@@ -19,7 +19,7 @@ import com.notifs.momEye.Service.TimestampsService;
 
 
 @RestController
-@RequestMapping("/momseye")
+@RequestMapping("/timestamps")
 public class TimestampsController {
 	
 	//Ephraim Khirt O. Perez BSIT-3/G1

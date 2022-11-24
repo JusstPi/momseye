@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.notifs.momEye.Entity.TimestampsEntity;
 import com.notifs.momEye.Repository.TimestampsRepository;
 
+@Service
 public class TimestampsService {
 
 	@Autowired
