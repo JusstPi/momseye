@@ -14,7 +14,6 @@ public class NotifEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-<<<<<<< Updated upstream
 	private int notifyId;
 	private String template;
 	private String descript;
@@ -23,14 +22,9 @@ public class NotifEntity {
 	public NotifEntity() {
 		//default
 	}
-	
-	public NotifEntity(int notifyId, String template,  String descript, boolean status) {
-=======
-	public NotifEntity() {
-		//default
-	}
-	public NotifEntity(int id, String studentUser, String date, String time) {
->>>>>>> Stashed changes
+
+
+	public NotifEntity(int notifyId, String template, String descript, boolean status) {
 		super();
 		this.notifyId = notifyId;
 		this.template = template;
