@@ -9,6 +9,6 @@ import com.notifs.momEye.Entity.SchoolEntity;
 public interface SchoolRepository extends JpaRepository<SchoolEntity, Integer>{
 	
 	//user-defined query
-	
+	//asda
 
 }
