@@ -46,14 +46,14 @@ public class SchoolController {
 //	}
 	
 	@PutMapping("/updateSchool")
-    public SchoolEntity putStudent(@RequestParam int id, @RequestBody SchoolEntity newSchoolDetails) throws Exception{
-        return stserv.putSchool(id, newSchoolDetails);
+    public SchoolEntity putStudent(@RequestParam int id, @RequestBody SchoolEntity newStudentDetails) throws Exception{
+        return stserv.putSchool(id, newStudentDetails);
 
         }
 
     //delete a record
     @DeleteMapping("/deleteSchool/{id}")
     public String deleteStudent(@PathVariable int id){ 
-        return stserv.deleteSchool(id);
+        return stserv.deleteStudent(id);
     }
 }
