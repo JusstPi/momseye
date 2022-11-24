@@ -11,53 +11,62 @@ import com.notifs.momEye.Repository.NotifRepository;
 
 @Service
 public class NotifService {
-
+	
 	@Autowired
 	NotifRepository nrepo;
 	
-	//C - Create or insert a record
-	
+	//C - Create or insert record
 	public NotifEntity insertNotif(NotifEntity notif) {
-		return nrepo.save();
+		return nrepo.save(notif);
 	}
 	
-	//R - Read all records
+	//R - Read a notif record from tbl_notif
 	public List<NotifEntity> getAllNotif(){
 		return nrepo.findAll();
 	}
 	
-	//U - Update record 
-	public NotifEntity putNotif(int id, NotifEntity newNotif) throws Exception{
-		
-		NotifEntity notifs = new NotifEntity;
-		
-		try {
-			notifs = nrepo.findById(id).get();
-			
-			//Step 2 - update the record
-			notifs.setDate(newNotif.getDate());
-			notifs.setTime(newNotif.getTime());
-			
-			//Step 3 - save the information and return the value
-			return nrepo.save(notifs);
-
-		} catch(NoSuchElementException nex) {
-			throw new Exception("ID Number " +id+ "does not exist!");
-		}
+	//R - Read or search record by notifyId
+	public NotifEntity findByNotifyId(int notifyId) {
+		if (nrepo.findByNotifyId(notifyId) != null)
+			return nrepo.findByNotifyId(notifyId);
+		else 
+			return null;
 	}
 	
-	//D - Delete notification
-	public String deleteNotif(int id){
+	//U - Update a record 
+	public NotifEntity putNotif(int notifyId, NotifEntity newDetails) throws Exception{
+
+        NotifEntity notifs = new NotifEntity();
+
+        try {
+            //Step 1 - search the id number of the student
+            notifs = nrepo.findById(notifyId).get(); //findById() is a pre-defined 
+
+            //Step 2 - update the record
+            notifs.setDescript(newDetails.getDescript());
+            notifs.setTemplate(newDetails.getTemplate());
+            notifs.setStatus(newDetails.isStatus());
+
+            //Step 3 - save the information and return the value
+            return nrepo.save(notifs);
+
+        } catch(NoSuchElementException next) {
+            throw new Exception("ID Number " +notifyId+ "does not exist!");
+        }
+    }
+	
+	//D - Delete record
+	public String deleteNotif(int notifyId){
 		String msg;
-		if(nrepo.findById(id) != null) {	
-			nrepo.deleteById(id);
+		if(nrepo.findById(notifyId) != null) {	//Step 1 - find the record
+			nrepo.deleteById(notifyId);			//Step 2 - delete the record
 			
-			msg = "Notification ID Number " +id+ " is successfully deleted!";
+			msg = "Notification ID Number " +notifyId+ " is successfully deleted!";
 		}
 		else
-			msg = "Notification ID Number " +id+ " is NOT found!";
+			msg = "Notification ID Number " +notifyId+ " is NOT found!";
 		
 		return msg;
 	}
-
+	
 }

@@ -8,49 +8,62 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_notif")
-public class NotifEntity {
 
+public class NotifEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	private String studentUser;
-	private String date;
-	private String time;
 	
-	public NotifEntity(int id, String studentUser, String date, String time) {
+	private int notifyId;
+	private String template;
+	private String descript;
+	private boolean status;
+	
+	public NotifEntity() {
+		//default
+	}
+	
+	public NotifEntity(int notifyId, String template,  String descript, boolean status) {
 		super();
-		this.id = id;
-		this.studentUser = studentUser;
-		this.date = date;
-		this.time = time;
+		this.notifyId = notifyId;
+		this.template = template;
+		this.descript = descript;
+		this.status = status;
 	}
-	public int getId() {
-		return id;
+
+	public int getNotifyId() {
+		return notifyId;
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public void setNotifyId(int notifyId) {
+		this.notifyId = notifyId;
 	}
-	public String getStudentUser() {
-		return studentUser;
-	}
-	public void setStudentUser(String studentUser) {
-		this.studentUser = studentUser;
-	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-}
 	
+	public String getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
+	}
+
+
+	public String getDescript() {
+		return descript;
+	}
+
+	public void setDescript(String descript) {
+		this.descript = descript;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	
 	
 
+}

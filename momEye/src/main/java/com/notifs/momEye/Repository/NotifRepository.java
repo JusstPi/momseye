@@ -6,8 +6,9 @@ import org.springframework.stereotype.Repository;
 import com.notifs.momEye.Entity.NotifEntity;
 
 @Repository
-public interface NotifRepository extends JpaRepository<NotifRepository, Integer>{
+public interface NotifRepository extends JpaRepository<NotifEntity, Integer>{
 	
 	//user-defined query 
-	NotifEntity findById(int id);
+	NotifEntity findByNotifyId(int notifyId);
+
 }
