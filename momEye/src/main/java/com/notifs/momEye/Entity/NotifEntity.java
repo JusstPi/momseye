@@ -36,8 +36,7 @@ public class NotifEntity {
 		//default constructor
 	}
 
-	public NotifEntity(int notifyId, String descript, String template, boolean status,
-			Set<WatchlistEntity> watchlist_id, Set<StudentEntity> sender, Set<WatchlistEntity> createdDate) {
+	public NotifEntity(int notifyId, String descript, String template, boolean status) {
 		super();
 		this.notifyId = notifyId;
 		this.descript = descript;

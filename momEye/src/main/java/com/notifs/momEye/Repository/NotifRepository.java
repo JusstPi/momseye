@@ -6,10 +6,6 @@ import com.notifs.momEye.Entity.NotifEntity;
 
 @Repository
 public interface NotifRepository extends JpaRepository<NotifEntity, Integer>{
-	
-	//PK = id
-	//Wrapper class = Integer
-	
 	//user-defined query 
 
 	NotifEntity findByNotifyId(int notifyId);
