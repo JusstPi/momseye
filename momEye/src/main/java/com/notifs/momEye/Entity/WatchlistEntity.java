@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "tbl_wathclist")
+@Table (name = "tbl_watchlist")
 
 public class WatchlistEntity {
 	
@@ -16,42 +16,43 @@ public class WatchlistEntity {
 
 	private int watchlist_id;
 	
-	private String wathclist_name;
+	private String watchlistname;
 	private String createdDate;
 	
 	public WatchlistEntity() {
 		//default constructor
 	}
-	
-	public WatchlistEntity(int watchlist_id, String wathclist_name, String createdDate) {
+
+	public WatchlistEntity(int watchlist_id, String watchlistname, String createdDate) {
 		super();
 		this.watchlist_id = watchlist_id;
-		this.wathclist_name = wathclist_name;
+		this.watchlistname = watchlistname;
 		this.createdDate = createdDate;
 	}
+
 	public int getWatchlist_id() {
 		return watchlist_id;
 	}
-	public void setWatchlist_id(int watchlist_id) {
-		this.watchlist_id = watchlist_id;
+
+	//public void setWatchlist_id(int watchlist_id) {
+	//	this.watchlist_id = watchlist_id;
+	//}
+
+	public String getWatchlistname() {
+		return watchlistname;
 	}
-	public String getWathclist_name() {
-		return wathclist_name;
+
+	public void setWatchlistname(String watchlistname) {
+		this.watchlistname = watchlistname;
 	}
-	public void setWathclist_name(String wathclist_name) {
-		this.wathclist_name = wathclist_name;
-	}
+
 	public String getCreatedDate() {
 		return createdDate;
 	}
+
 	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
 	}
-	
-	
-	
-	
-	
 	
 
 }
