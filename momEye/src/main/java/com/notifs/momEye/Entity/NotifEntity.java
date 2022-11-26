@@ -4,9 +4,12 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,76 +30,83 @@ public class NotifEntity {
 	public Set<WatchlistEntity> watchlist_id;
 	
 	
-	//@ManyToOne(cascade = CascadeType.MERGE)
-	//public Set<StudentEntity> sender;
+	@ManyToOne
+	@JoinColumn(name="sender")
+	StudentEntity sender;
 	
-	//@OneToMany(cascade = CascadeType.MERGE)
-	//public Set<WatchlistEntity> createdDate;
+	@OneToMany(cascade = CascadeType.MERGE)
+	public Set<WatchlistEntity> createdDate;
 	
 	public NotifEntity() {
 		//default constructor
 	}
-	
-		
+
 	public NotifEntity(int notifyId, String descript, String template, boolean status,
-			Set<WatchlistEntity> watchlist_id) {
+			Set<WatchlistEntity> watchlist_id, StudentEntity sender, Set<WatchlistEntity> createdDate) {
 		super();
 		this.notifyId = notifyId;
 		this.descript = descript;
 		this.template = template;
 		this.status = status;
 		this.watchlist_id = watchlist_id;
-		//this.sender = sender;
-		//this.createdDate = createdDate;
+		this.sender = sender;
+		this.createdDate = createdDate;
 	}
-
 
 	public int getNotifyId() {
 		return notifyId;
 	}
 
-	//public void setNotifyId(int notifyId) {
-	//	this.notifyId = notifyId;
-	//}
-
+	public void setNotifyId(int notifyId) {
+		this.notifyId = notifyId;
+	}
 
 	public String getDescript() {
 		return descript;
 	}
 
-
 	public void setDescript(String descript) {
 		this.descript = descript;
 	}
-
 
 	public String getTemplate() {
 		return template;
 	}
 
-
 	public void setTemplate(String template) {
 		this.template = template;
 	}
-
 
 	public boolean isStatus() {
 		return status;
 	}
 
-
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-
 
 	public Set<WatchlistEntity> getWatchlist_id() {
 		return watchlist_id;
 	}
 
-
 	public void setWatchlist_id(Set<WatchlistEntity> watchlist_id) {
 		this.watchlist_id = watchlist_id;
+	}
+
+	public StudentEntity getSender() {
+		return sender;
+	}
+
+	public void setSender(StudentEntity sender) {
+		this.sender = sender;
+	}
+
+	public Set<WatchlistEntity> getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Set<WatchlistEntity> createdDate) {
+		this.createdDate = createdDate;
 	}
 	
 	

@@ -17,7 +17,7 @@ import com.notifs.momEye.Entity.NotifEntity;
 import com.notifs.momEye.Service.NotifService;
 
 @RestController
-@RequestMapping("/notif")
+@RequestMapping("/notification")
 public class NotifController {
 	
 	@Autowired
