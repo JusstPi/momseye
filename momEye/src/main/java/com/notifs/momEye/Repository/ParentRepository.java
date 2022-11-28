@@ -5,9 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.notifs.momEye.Entity.ParentEntity;
 
+
 @Repository
-public interface ParentRepository extends JpaRepository<ParentEntity, Integer> {
-	
-	//user-define query
-	ParentEntity findByUsername(String username);
+public interface ParentRepository extends JpaRepository<ParentEntity, Integer>{
+	//user defined query
 }
