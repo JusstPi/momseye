@@ -26,9 +26,9 @@ public class NotifService {
 	}
 	
 	//R - Read or search record by studentUser
-	public NotifEntity findByNotifyId(int notifyId) {
-		if (nrepo.findByNotifyId(notifyId) != null)
-			return nrepo.findByNotifyId(notifyId);
+	public NotifEntity findByTemplate(String template) {
+		if (nrepo.findByTemplate(template) != null)
+			return nrepo.findByTemplate(template);
 		else 
 			return null;
 	}

@@ -8,5 +8,7 @@ import com.notifs.momEye.Entity.NotifEntity;
 public interface NotifRepository extends JpaRepository<NotifEntity, Integer>{
 	//user-defined query 
 
-	NotifEntity findByNotifyId(int notifyId);
+	NotifEntity findByTemplate(String template);
+
+	//NotifEntity findByNotifyId(int notifyId);
 }

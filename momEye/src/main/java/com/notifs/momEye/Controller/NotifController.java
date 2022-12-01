@@ -42,21 +42,21 @@ public class NotifController {
 			return ntserv.getAllNotif();
 		}
 		
-		@GetMapping("/getByNotif")
-	    public NotifEntity findByNotifyId(@RequestParam int notifyId) {
-	        return ntserv.findByNotifyId(notifyId);
+		@GetMapping("/getByNotifTemplate")
+	    public NotifEntity findByTemplate(@RequestParam String template) {
+	        return ntserv.findByTemplate(template);
 	    }
 		
 		//Update a record
 		@PutMapping("/putNotif")
-		public NotifEntity putNotif(@RequestParam int id, @RequestBody NotifEntity newDetails) throws Exception{
-			return ntserv.putNotif(id, newDetails);
+		public NotifEntity putNotif(@RequestParam int notifyId, @RequestBody NotifEntity newDetails) throws Exception{
+			return ntserv.putNotif(notifyId, newDetails);
 		}
 		
 		//Delete a record
-		@DeleteMapping("/deleteNotif/{id}")
-		public String deleteNotif(@PathVariable int id) {
-				return ntserv.deleteNotif(id);
+		@DeleteMapping("/deleteNotif/{notifyId}")
+		public String deleteNotif(@PathVariable int notifyId) {
+				return ntserv.deleteNotif(notifyId);
 		}
 	} 
 
