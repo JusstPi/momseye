@@ -1,141 +1,33 @@
 package com.notifs.momEye.Entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_Student")
-public class StudentEntity {
+@Table(name="tbl_students")
+public class StudentEntity extends UserEntity {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	int userid;
-	private String username;
-	private String password;
-	private String fname;
-	private String mname;
-	private String lname;
-	private int age;
-	private String address;
-	private String bdate;
-	private int contactnum;
-	private char acctype;
 	private String department;
 	private String course;
 	private int year;
+	@OneToMany(cascade = CascadeType.MERGE)
+	private Set<SubjectEntity> subject;
 	
 	public StudentEntity() {}
 
-	public StudentEntity(int userid, String username, String password, String fname, String mname, String lname,
-			int age, String address, String bdate, int contactnum, char acctype, String department, String course,
-			int year) {
+	public StudentEntity(String department, String course, int year, Set<SubjectEntity> subject) {
 		super();
-		this.userid = userid;
-		this.username = username;
-		this.password = password;
-		this.fname = fname;
-		this.mname = mname;
-		this.lname = lname;
-		this.age = age;
-		this.address = address;
-		this.bdate = bdate;
-		this.contactnum = contactnum;
-		this.acctype = acctype;
 		this.department = department;
 		this.course = course;
 		this.year = year;
-	}
-
-	public int getUserid() {
-		return userid;
-	}
-
-	/*public void setUserid(int userid) {
-		this.userid = userid;
-	}*/
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getMname() {
-		return mname;
-	}
-
-	public void setMname(String mname) {
-		this.mname = mname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getBdate() {
-		return bdate;
-	}
-
-	public void setBdate(String bdate) {
-		this.bdate = bdate;
-	}
-
-	public int getContactnum() {
-		return contactnum;
-	}
-
-	public void setContactnum(int contactnum) {
-		this.contactnum = contactnum;
-	}
-
-	public char getAcctype() {
-		return acctype;
-	}
-
-	public void setAcctype(char acctype) {
-		this.acctype = acctype;
+		this.subject = subject;
 	}
 
 	public String getDepartment() {
@@ -161,8 +53,15 @@ public class StudentEntity {
 	public void setYear(int year) {
 		this.year = year;
 	}
+
+	public Set<SubjectEntity> getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Set<SubjectEntity> subject) {
+		this.subject = subject;
+	}
 	
-	
+
+
 }
-	
-	

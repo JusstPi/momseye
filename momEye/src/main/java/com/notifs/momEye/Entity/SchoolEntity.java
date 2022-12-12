@@ -34,7 +34,6 @@ public class SchoolEntity {
 		this.schoolAddress = schoolAddress;
 		
 		this.schoolCont = schoolCont;
-		
 	}
 
 	public int getId() {
@@ -68,9 +67,5 @@ public class SchoolEntity {
 	public void setSchoolCont(String schoolCont) {
 		this.schoolCont = schoolCont;
 	}
-
-
-
-	
     
 }
