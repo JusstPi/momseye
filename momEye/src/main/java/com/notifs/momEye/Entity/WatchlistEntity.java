@@ -1,5 +1,9 @@
 package com.notifs.momEye.Entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,13 +21,13 @@ public class WatchlistEntity {
 	private int watchlist_id;
 	
 	private String watchlistname;
-	private String createdDate;
+	private LocalDateTime createdDate=LocalDateTime.now();
 	
 	public WatchlistEntity() {
 		//default constructor
 	}
 
-	public WatchlistEntity(int watchlist_id, String watchlistname, String createdDate) {
+	public WatchlistEntity(int watchlist_id, String watchlistname, LocalDateTime createdDate) {
 		super();
 		this.watchlist_id = watchlist_id;
 		this.watchlistname = watchlistname;
@@ -46,11 +50,11 @@ public class WatchlistEntity {
 		this.watchlistname = watchlistname;
 	}
 
-	public String getCreatedDate() {
+	public LocalDateTime getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(String createdDate) {
+	public void setCreatedDate(LocalDateTime createdDate) {
 		this.createdDate = createdDate;
 	}
 	

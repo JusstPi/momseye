@@ -108,6 +108,7 @@ public class NotifEntity {
 	public void setCreatedDate(Set<WatchlistEntity> createdDate) {
 		this.createdDate = createdDate;
 	}
+
 	
 	
 }
